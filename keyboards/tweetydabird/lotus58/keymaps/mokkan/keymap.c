@@ -1,8 +1,5 @@
 #include QMK_KEYBOARD_H
 
-#define LT_LEFT LT(TRI_LAYER_LOWER_LAYER, KC_SPC)
-#define LT_RGHT LT(TRI_LAYER_UPPER_LAYER, KC_ENT)
-
 enum lotus_layers {
     _GALLIUM = 0,
     _NAV_NUM,
@@ -16,7 +13,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,   KC_B,   KC_L,    KC_D,    KC_C,    KC_V,                             KC_J,    KC_Y,    KC_O,    KC_U,    KC_COMM, KC_DEL,
         KC_LCTL,  KC_N,   KC_R,    KC_T,    KC_S,    KC_G,                             KC_P,    KC_H,    KC_A,    KC_E,    KC_I,    KC_RCTL,
         KC_LSFT,  KC_X,   KC_Q,    KC_M,    KC_W,    KC_Z,    KC_ESC,         KC_BSPC, KC_K,    KC_F,    KC_QUOT, KC_SCLN, KC_DOT,  KC_RSFT,
-                                   KC_COPY, KC_LALT, KC_LGUI, LT_LEFT,        LT_RGHT, KC_RGUI, KC_RALT, KC_PSTE
+                                   KC_LALT, KC_LGUI, TL_LOWR, KC_SPC,         KC_ENT,  TL_UPPR, KC_RGUI, KC_RALT
     ),
 
     [_NAV_NUM] = LAYOUT(
