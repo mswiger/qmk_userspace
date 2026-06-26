@@ -1,0 +1,5 @@
+#pragma once
+
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#define HOLD_ON_OTHER_KEY_PRESS
+#define OLED_TIMEOUT 10000
