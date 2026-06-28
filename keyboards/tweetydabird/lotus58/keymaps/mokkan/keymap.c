@@ -56,7 +56,16 @@ combo_t key_combos[] = {
     COMBO(rh_reboot_combo, QK_RBT),
 };
 
+bool is_oled_enabled = true;
+
 bool oled_task_user(void) {
+    if (!is_oled_enabled) {
+        oled_off();
+        return false;
+    } else {
+        oled_on();
+    }
+
     oled_write_P(PSTR("Layer"), false);
     switch (get_highest_layer(layer_state)) {
         case _GALLIUM:
@@ -81,4 +90,11 @@ bool oled_task_user(void) {
     oled_write(wpm, false);
 
     return false;
+}
+
+// Manually implement code for shutting off OLED after timeout. This is done to support having a right-hand OLED
+// regardless of which side is plugged in (otherwise, if left side is main side, then right side OLED will be turned
+// off).
+void housekeeping_task_user(void) {
+    is_oled_enabled = (bool)(last_input_activity_elapsed() < 10000);
 }
